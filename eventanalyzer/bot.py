@@ -71,12 +71,31 @@ async def analyze_news(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     user_repo = get_user_repo()
     user = user_repo.get_or_create(update.effective_user.id)
     
+    # Extract text from message (handle both regular and forwarded messages)
+    message_text = None
+    
+    # Try to get text from various message fields
+    if update.message.text:
+        message_text = update.message.text
+    elif update.message.caption:
+        message_text = update.message.caption
+    
+    # If no text found, check if it's a forwarded message and log for debugging
+    if not message_text:
+        logger.info(f"No text found in message. Forward info: {update.message.forward_origin is not None}")
+        logger.info(f"Message type: text={bool(update.message.text)}, caption={bool(update.message.caption)}")
+        
+        await update.message.reply_text(
+            "❌ Sorry, I couldn't extract any text from this message. Please send a text message or forward a message with text content."
+        )
+        return
+    
     analyzing_msg = await update.message.reply_text(
         localization.get_text('analysis.analyzing', user.language)
     )
     
     try:
-        result = await analyzer.analyze(update.message.text, user.custom_instruction)
+        result = await analyzer.analyze(message_text, user.custom_instruction)
         
         # Validate message length (Telegram limit is 4096 characters)
         if len(result) > 4096:
@@ -337,7 +356,11 @@ def create_app() -> Application:
     app.add_handler(CommandHandler("language", language_command))
     app.add_handler(CommandHandler("setting", setting_command))
     app.add_handler(CallbackQueryHandler(handle_callback))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    # Handle both regular text messages and forwarded messages (including those with captions)
+    app.add_handler(MessageHandler(
+        (filters.TEXT | filters.FORWARDED | filters.CAPTION) & ~filters.COMMAND, 
+        handle_message
+    ))
     
     return app
 
