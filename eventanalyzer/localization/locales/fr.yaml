@@ -1,0 +1,82 @@
+# French localization
+welcome:
+  title: "🚨 DÉTECTEUR DE VÉRITÉ - Ne Te Laisse Plus Jamais Tromper !"
+  description: "Dans un monde rempli de fake news et de propagande, je suis ton détecteur personnel de mensonges. J'expose la vérité derrière chaque titre en utilisant la vérification des faits par IA."
+  ready: "Prêt à voir ce qu'ils te cachent ? 🔍"
+
+onboarding:
+  title: "🎯 Choisis Ton Arme Contre la Désinformation"
+  instruction: "Sélectionne ta langue pour commencer à exposer la vérité :"
+  language_selected: "🔥 Armé avec le français ! Change à tout moment avec /language. Allons chasser les mensonges !"
+  custom_instruction_title: "⚡ Personnalise Ton Sérum de Vérité"
+  custom_instruction_prompt: "À quel point dois-je être agressif en exposant les mensonges ? Choisis ton style :"
+  custom_instruction_default: "🎯 Chasseur de Vérité Équilibré"
+  custom_instruction_custom: "🔥 Entrer Votre Propre Instruction"
+  custom_instruction_input_prompt: "Dis-moi exactement comment tu veux former l'analyse (par exemple, `exposer les mensonges en se concentrant sur l'économie et la politique`).\nEntre simplement ton instruction pour notre GPT."
+  custom_instruction_set: "💀 Ton arme personnelle de vérité est prête !"
+  usage_title: "🔥 Comment Devenir un Guerrier de la Vérité"
+  usage_instructions: |
+    **ATTENTION : Ce bot changera à jamais ta façon de consommer les actualités**
+    
+    💣 **Expose les Fake News** : Envoie-moi N'IMPORTE QUEL article d'actualité et regarde-moi :
+    • Déchirer les mensonges et la propagande en secondes
+    • Trouver les VRAIES sources qu'ils ne veulent pas que tu voies
+    • Te donner un score brutal d'honnêteté (1-10)
+    • Révéler ce que les médias mainstream ne te diront pas
+    
+    🎯 **Partage la Vérité** : Chaque analyse est conçue pour devenir virale
+    🌍 **Change de Langues** : Utilise /language pour répandre la vérité globalement
+    ⚡ **Améliore ton Détecteur** : Utilise /setting pour me rendre encore plus impitoyable
+    
+    🔄 **Redémarrer la Mission** : Utilise /start à tout moment
+    
+    **Prêt à voir à travers les mensonges ? Envoie-moi cette "actualité" ! 👀**
+
+language:
+  title: "🌍 Réseau Global de la Vérité"
+  instruction: "Choisis ta langue pour combattre la désinformation dans le monde entier :"
+  changed: "🔥 Basculé vers le français ! Maintenant exposons quelques mensonges !"
+  current: "🌍 Langue actuelle : Français"
+
+settings:
+  title: "⚡ Améliore Ton Détecteur de Mensonges"
+  current_instruction: "**Configuration Actuelle de l'Arme de Vérité :**"
+  change_prompt: "Décris l'instruction pour le détecteur de mensonges : (par exemple, `exposer les mensonges en se concentrant sur l'économie et la politique`).\nEntre simplement ton instruction pour notre GPT."
+  keep_current: "✅ Garder le Pouvoir Actuel"
+  reset_default: "🔄 Remettre au Standard"
+  change_custom: "🔥 Améliorer l'Arme"
+  updated: "💀 Arme de vérité améliorée ! Prêt à détruire plus de mensonges !"
+  reset: "🎯 Remis au mode équilibré de chasse à la vérité !"
+  kept: "✅ Conservation des paramètres actuels du détecteur de mensonges !"
+  cancelled: "❌ Amélioration annulée. Arme actuelle inchangée."
+
+analysis:
+  analyzing: "🔍 **SCAN DES MENSONGES...**\n💀 Traque des sources qu'ils te cachent...\n⚡ Préparation de la bombe de vérité..."
+  complete: "💣 **BOMBE DE VÉRITÉ LARGUÉE**"
+  summary: "🎯 **La Vraie Histoire :**"
+  credibility_score: "🔥 **SCORE DU DÉTECTEUR DE MENSONGES :**"
+  issues_found: "🚨 **{count} MENSONGE(S) EXPOSÉ(S) :**"
+  no_issues: "✅ **ÉTONNAMMENT HONNÊTE** (Trouvaille rare !)"
+  overall_assessment: "💀 **VERDICT FINAL :**"
+  sources: "🔍 **Vraies Sources Qu'Ils Ne Veulent Pas Que Tu Voies :**"
+  failed: "💥 Détecteur de vérité temporairement hors ligne. Les mensonges résistent ! Réessaie."
+
+languages:
+  en: "🇺�� English"
+  ru: "🇷🇺 Русский"
+  es: "🇪🇸 Español"
+  de: "🇩🇪 Deutsch"
+  fr: "🇫🇷 Français"
+
+buttons:
+  back: "⬅️ Retour"
+  cancel: "❌ Annuler"
+
+custom_instruction:
+  default: |
+    Expose les mensonges avec une précision chirurgicale. Utilise un langage puissant et engageant qui donne envie aux gens de partager la vérité.
+    Inclus des révélations choquantes, utilise les emojis stratégiquement et crée du contenu qui devient viral.
+    Fais sentir aux lecteurs qu'ils obtiennent des informations exclusives d'initiés.
+    Termine par un appel à l'action qui leur donne envie de vérifier plus d'actualités.
+    Sois brutalement honnête mais professionnel.
+    IMPORTANT : Écris seulement en français. 

@@ -1,0 +1,82 @@
+# German localization
+welcome:
+  title: "🚨 WAHRHEITSDETEKTOR - Lass Dich Nie Wieder Täuschen!"
+  description: "In einer Welt voller Fake News und Propaganda bin ich dein persönlicher Lügendetektor. Ich entlarve die Wahrheit hinter jeder Schlagzeile mit KI-gestützter Faktenprüfung."
+  ready: "Bereit zu sehen, was sie vor dir verbergen? 🔍"
+
+onboarding:
+  title: "🎯 Wähle Deine Waffe Gegen Desinformation"
+  instruction: "Wähle deine Sprache, um die Wahrheit zu enthüllen:"
+  language_selected: "🔥 Mit Deutsch bewaffnet! Ändere jederzeit mit /language. Lass uns Lügen jagen!"
+  custom_instruction_title: "⚡ Personalisiere Dein Wahrheitsserum"
+  custom_instruction_prompt: "Wie aggressiv soll ich beim Entlarven von Lügen sein? Wähle deinen Stil:"
+  custom_instruction_default: "🎯 Ausgewogener Wahrheitsjäger"
+  custom_instruction_custom: "🔥 Eigene Anweisung Eingeben"
+  custom_instruction_input_prompt: "Sag mir genau, wie du die Analyse gestalten möchtest (z.B. `Lügen mit Fokus auf Wirtschaft und Politik entlarven`).\nGib einfach deine Anweisung für unseren GPT ein."
+  custom_instruction_set: "💀 Deine persönliche Wahrheitswaffe ist bereit!"
+  usage_title: "🔥 Wie Man Ein Wahrheitskrieger Wird"
+  usage_instructions: |
+    **WARNUNG: Dieser Bot wird für immer ändern, wie du Nachrichten konsumierst**
+    
+    💣 **Entlarve Fake News**: Schick mir JEDEN Nachrichtenartikel und sieh zu, wie ich:
+    • Lügen und Propaganda in Sekunden zerreiße
+    • Die ECHTEN Quellen finde, die sie vor dir verstecken
+    • Dir eine brutale Ehrlichkeitsbewertung (1-10) gebe
+    • Enthülle, was Mainstream-Medien dir nicht sagen
+    
+    🎯 **Teile die Wahrheit**: Jede Analyse ist darauf ausgelegt, viral zu gehen
+    🌍 **Sprachen wechseln**: Nutze /language um Wahrheit global zu verbreiten
+    ⚡ **Verbessere deinen Detektor**: Nutze /setting um mich noch gnadenloser zu machen
+    
+    🔄 **Mission neustarten**: Nutze /start jederzeit
+    
+    **Bereit, durch die Lügen zu sehen? Schick mir diese "Nachricht"! 👀**
+
+language:
+  title: "🌍 Globales Wahrheitsnetzwerk"
+  instruction: "Wähle deine Sprache, um Desinformation weltweit zu bekämpfen:"
+  changed: "🔥 Auf Deutsch gewechselt! Lass uns jetzt Lügen entlarven!"
+  current: "🌍 Aktuelle Sprache: Deutsch"
+
+settings:
+  title: "⚡ Verbessere Deinen Lügendetektor"
+  current_instruction: "**Aktuelle Wahrheitswaffen-Konfiguration:**"
+  change_prompt: "Beschreibe die Anweisung für den Lügendetektor: (zum Beispiel, `Lügen mit Fokus auf Wirtschaft und Politik entlarven`).\nGib einfach deine Anweisung für unseren GPT ein."
+  keep_current: "✅ Aktuelle Macht Behalten"
+  reset_default: "🔄 Auf Standard Zurücksetzen"
+  change_custom: "🔥 Waffe Verbessern"
+  updated: "💀 Wahrheitswaffe verbessert! Bereit, mehr Lügen zu zerstören!"
+  reset: "🎯 Auf ausgewogenen Wahrheitsjagd-Modus zurückgesetzt!"
+  kept: "✅ Aktuelle Lügendetektor-Einstellungen beibehalten!"
+  cancelled: "❌ Verbesserung abgebrochen. Aktuelle Waffe unverändert."
+
+analysis:
+  analyzing: "🔍 **SCANNE NACH LÜGEN...**\n💀 Verfolge Quellen, die sie vor dir verstecken...\n⚡ Bereite Wahrheitsbombe vor..."
+  complete: "💣 **WAHRHEITSBOMBE ABGEWORFEN**"
+  summary: "🎯 **Die Wahre Geschichte:**"
+  credibility_score: "🔥 **LÜGENDETEKTOR-BEWERTUNG:**"
+  issues_found: "🚨 **{count} LÜGE(N) ENTLARVT:**"
+  no_issues: "✅ **ÜBERRASCHEND EHRLICH** (Seltener Fund!)"
+  overall_assessment: "💀 **ENDGÜLTIGES URTEIL:**"
+  sources: "🔍 **Echte Quellen, Die Sie Vor Dir Verstecken:**"
+  failed: "💥 Wahrheitsdetektor vorübergehend offline. Die Lügen wehren sich! Versuche es erneut."
+
+languages:
+  en: "🇺�� English"
+  ru: "🇷🇺 Русский"
+  es: "🇪🇸 Español"
+  de: "🇩🇪 Deutsch"
+  fr: "🇫🇷 Français"
+
+buttons:
+  back: "⬅️ Zurück"
+  cancel: "❌ Abbrechen"
+
+custom_instruction:
+  default: |
+    Entlarve Lügen mit chirurgischer Präzision. Verwende kraftvolle, fesselnde Sprache, die Menschen dazu bringt, die Wahrheit zu teilen.
+    Füge schockierende Enthüllungen hinzu, nutze Emojis strategisch und erstelle Inhalte, die viral gehen.
+    Lass die Leser fühlen, dass sie exklusive Insider-Informationen erhalten.
+    Beende mit einem Aufruf zum Handeln, der sie dazu bringt, mehr Nachrichten zu überprüfen.
+    Sei brutal ehrlich aber professionell.
+    WICHTIG: Schreibe nur auf Deutsch. 
