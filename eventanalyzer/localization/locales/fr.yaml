@@ -1,68 +1,69 @@
 # French localization
 welcome:
-  title: "🚨 DÉTECTEUR DE VÉRITÉ - Ne Te Laisse Plus Jamais Tromper !"
-  description: "Dans un monde rempli de fake news et de propagande, je suis ton détecteur personnel de mensonges. J'expose la vérité derrière chaque titre en utilisant la vérification des faits par IA."
-  ready: "Prêt à voir ce qu'ils te cachent ? 🔍"
+  title: "🔍 VÉRIFICATEUR DE FAITS - Obtenez la Vraie Histoire !"
+  description: "Dans un monde rempli de désinformation et de biais, je suis votre assistant personnel de vérification des faits. Je vous aide à découvrir la vérité derrière chaque titre en utilisant l'analyse par IA."
+  ready: "Prêt à découvrir ce qui se passe vraiment ? 🔍"
 
 onboarding:
-  title: "🎯 Choisis Ton Arme Contre la Désinformation"
-  instruction: "Sélectionne ta langue pour commencer à exposer la vérité :"
-  language_selected: "🔥 Armé avec le français ! Change à tout moment avec /language. Allons chasser les mensonges !"
-  custom_instruction_title: "⚡ Personnalise Ton Sérum de Vérité"
-  custom_instruction_prompt: "À quel point dois-je être agressif en exposant les mensonges ? Choisis ton style :"
-  custom_instruction_default: "🎯 Chasseur de Vérité Équilibré"
-  custom_instruction_custom: "🔥 Entrer Votre Propre Instruction"
-  custom_instruction_input_prompt: "Dis-moi exactement comment tu veux former l'analyse (par exemple, `exposer les mensonges en se concentrant sur l'économie et la politique`).\nEntre simplement ton instruction pour notre GPT."
-  custom_instruction_set: "💀 Ton arme personnelle de vérité est prête !"
-  usage_title: "🔥 Comment Devenir un Guerrier de la Vérité"
+  title: "🎯 Choisissez Votre Approche de Vérification des Faits"
+  instruction: "Sélectionnez votre langue pour commencer à analyser l'information :"
+  language_selected: "✅ Configuré en français ! Changez à tout moment avec /language. Commençons la vérification des faits !"
+  custom_instruction_title: "⚡ Personnalisez Votre Style d'Analyse"
+  custom_instruction_prompt: "À quel point dois-je être minutieux en analysant l'information ? Choisissez votre approche :"
+  custom_instruction_default: "🎯 Vérificateur de Faits Équilibré"
+  custom_instruction_custom: "🔧 Entrer Votre Propre Instruction"
+  custom_instruction_default_preview: "**Configuration d'Analyse par Défaut :**"
+  custom_instruction_input_prompt: "Dites-moi exactement comment vous voulez que j'analyse le contenu (par exemple, `se concentrer sur la vérification des faits avec l'accent sur l'économie et la politique`).\nEntrez simplement votre instruction pour notre IA."
+  custom_instruction_set: "✅ Votre approche personnalisée de vérification des faits est prête !"
+  usage_title: "🔍 Comment Devenir un Lecteur Informé"
   usage_instructions: |
-    **ATTENTION : Ce bot changera à jamais ta façon de consommer les actualités**
+    **Transformez votre façon de consommer les actualités et l'information**
     
-    💣 **Expose les Fake News** : Envoie-moi N'IMPORTE QUEL article d'actualité et regarde-moi :
-    • Déchirer les mensonges et la propagande en secondes
-    • Trouver les VRAIES sources qu'ils ne veulent pas que tu voies
-    • Te donner un score brutal d'honnêteté (1-10)
-    • Révéler ce que les médias mainstream ne te diront pas
+    📊 **Analysez N'importe Quel Contenu** : Envoyez-moi N'IMPORTE QUEL article d'actualité et je vais :
+    • Vérifier les faits et identifier les biais potentiels en secondes
+    • Trouver des sources fiables et des références croisées
+    • Vous donner une évaluation de crédibilité (1-10)
+    • Souligner ce qui pourrait manquer dans l'histoire
     
-    🎯 **Partage la Vérité** : Chaque analyse est conçue pour devenir virale
-    🌍 **Change de Langues** : Utilise /language pour répandre la vérité globalement
-    ⚡ **Améliore ton Détecteur** : Utilise /setting pour me rendre encore plus impitoyable
+    🎯 **Partagez des Informations Fiables** : Chaque analyse vous aide à prendre des décisions éclairées
+    🌍 **Changez de Langues** : Utilisez /language pour vérifier le contenu globalement
+    ⚡ **Ajustez les Paramètres** : Utilisez /setting pour personnaliser vos préférences d'analyse
     
-    🔄 **Redémarrer la Mission** : Utilise /start à tout moment
+    🔄 **Redémarrez Quand Vous Voulez** : Utilisez /start pour recommencer
     
-    **Prêt à voir à travers les mensonges ? Envoie-moi cette "actualité" ! 👀**
+    **Prêt à obtenir l'image complète ? Envoyez-moi cet article ! 📰**
 
 language:
-  title: "🌍 Réseau Global de la Vérité"
-  instruction: "Choisis ta langue pour combattre la désinformation dans le monde entier :"
-  changed: "🔥 Basculé vers le français ! Maintenant exposons quelques mensonges !"
+  title: "🌍 Réseau Global de Vérification des Faits"
+  instruction: "Choisissez votre langue pour combattre la désinformation dans le monde entier :"
+  changed: "✅ Basculé vers le français ! Maintenant analysons du contenu !"
   current: "🌍 Langue actuelle : Français"
 
 settings:
-  title: "⚡ Améliore Ton Détecteur de Mensonges"
-  current_instruction: "**Configuration Actuelle de l'Arme de Vérité :**"
-  change_prompt: "Décris l'instruction pour le détecteur de mensonges : (par exemple, `exposer les mensonges en se concentrant sur l'économie et la politique`).\nEntre simplement ton instruction pour notre GPT."
-  keep_current: "✅ Garder le Pouvoir Actuel"
-  reset_default: "🔄 Remettre au Standard"
-  change_custom: "🔥 Améliorer l'Arme"
-  updated: "💀 Arme de vérité améliorée ! Prêt à détruire plus de mensonges !"
-  reset: "🎯 Remis au mode équilibré de chasse à la vérité !"
-  kept: "✅ Conservation des paramètres actuels du détecteur de mensonges !"
-  cancelled: "❌ Amélioration annulée. Arme actuelle inchangée."
+  title: "⚡ Personnalisez Votre Vérificateur de Faits"
+  current_instruction: "**Configuration Actuelle d'Analyse :**"
+  change_prompt: "Décrivez comment vous voulez que le vérificateur de faits fonctionne : (par exemple, `se concentrer sur la vérification des faits avec l'accent sur l'économie et la politique`).\nEntrez simplement votre instruction pour notre IA."
+  keep_current: "✅ Garder les Paramètres Actuels"
+  reset_default: "🔄 Remettre par Défaut"
+  change_custom: "🔧 Personnaliser l'Approche"
+  updated: "✅ Approche d'analyse mise à jour ! Prêt à fournir de meilleures perspectives !"
+  reset: "🎯 Remis au mode équilibré de vérification des faits !"
+  kept: "✅ Conservation des paramètres actuels de vérification des faits !"
+  cancelled: "❌ Mise à jour annulée. Paramètres actuels inchangés."
 
 analysis:
-  analyzing: "🔍 **SCAN DES MENSONGES...**\n💀 Traque des sources qu'ils te cachent...\n⚡ Préparation de la bombe de vérité..."
-  complete: "💣 **BOMBE DE VÉRITÉ LARGUÉE**"
-  summary: "🎯 **La Vraie Histoire :**"
-  credibility_score: "🔥 **SCORE DU DÉTECTEUR DE MENSONGES :**"
-  issues_found: "🚨 **{count} MENSONGE(S) EXPOSÉ(S) :**"
-  no_issues: "✅ **ÉTONNAMMENT HONNÊTE** (Trouvaille rare !)"
-  overall_assessment: "💀 **VERDICT FINAL :**"
-  sources: "🔍 **Vraies Sources Qu'Ils Ne Veulent Pas Que Tu Voies :**"
-  failed: "💥 Détecteur de vérité temporairement hors ligne. Les mensonges résistent ! Réessaie."
+  analyzing: "🔍 **ANALYSE DU CONTENU...**\n📊 Recoupement des sources et des faits...\n⚡ Préparation d'une analyse complète..."
+  complete: "📊 **ANALYSE TERMINÉE**"
+  summary: "🎯 **Conclusions Clés :**"
+  credibility_score: "📊 **ÉVALUATION DE CRÉDIBILITÉ :**"
+  issues_found: "⚠️ **{count} PRÉOCCUPATION(S) TROUVÉE(S) :**"
+  no_issues: "✅ **CONTENU BIEN DOCUMENTÉ** (Bonne trouvaille !)"
+  overall_assessment: "📋 **ÉVALUATION GLOBALE :**"
+  sources: "🔍 **Sources Supplémentaires à Considérer :**"
+  failed: "⚠️ Analyse temporairement indisponible. Veuillez réessayer sous peu."
 
 languages:
-  en: "🇺�� English"
+  en: "🇺🇸 English"
   ru: "🇷🇺 Русский"
   es: "🇪🇸 Español"
   de: "🇩🇪 Deutsch"
@@ -74,9 +75,9 @@ buttons:
 
 custom_instruction:
   default: |
-    Expose les mensonges avec une précision chirurgicale. Utilise un langage puissant et engageant qui donne envie aux gens de partager la vérité.
-    Inclus des révélations choquantes, utilise les emojis stratégiquement et crée du contenu qui devient viral.
-    Fais sentir aux lecteurs qu'ils obtiennent des informations exclusives d'initiés.
-    Termine par un appel à l'action qui leur donne envie de vérifier plus d'actualités.
-    Sois brutalement honnête mais professionnel.
-    IMPORTANT : Écris seulement en français. 
+    Analysez le contenu avec précision et objectivité. Utilisez un langage clair et engageant qui aide les gens à comprendre des informations complexes.
+    Fournissez des perspectives équilibrées, utilisez les emojis de manière appropriée et créez du contenu qui encourage la pensée critique.
+    Aidez les lecteurs à se sentir informés et habilités à porter leurs propres jugements.
+    Terminez par des suggestions qui encouragent plus de recherche et de vérification des faits.
+    Soyez minutieux et professionnel tout en restant accessible.
+    IMPORTANT : Écrivez seulement en français. 

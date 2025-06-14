@@ -8,6 +8,7 @@ from telegram.ext import (
     filters, 
     ContextTypes
 )
+from telegram.error import BadRequest, TelegramError
 
 from .config import config
 from .models import init_db
@@ -76,12 +77,48 @@ async def analyze_news(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     
     try:
         result = await analyzer.analyze(update.message.text, user.custom_instruction)
-        await analyzing_msg.edit_text(result, parse_mode='Markdown')
+        
+        # Validate message length (Telegram limit is 4096 characters)
+        if len(result) > 4096:
+            logger.warning(f"Generated message too long ({len(result)} chars), truncating...")
+            result = result[:4090] + "..."
+        
+        # Try to edit the message
+        try:
+            await analyzing_msg.edit_text(result, parse_mode='Markdown')
+        except BadRequest as e:
+            logger.warning(f"Failed to edit message: {e}")
+            # If editing fails, try without Markdown formatting
+            try:
+                await analyzing_msg.edit_text(result)
+            except BadRequest as e2:
+                logger.warning(f"Failed to edit message without Markdown: {e2}")
+                # If still failing, delete the analyzing message and send a new one
+                try:
+                    await analyzing_msg.delete()
+                    await update.message.reply_text(result)
+                except TelegramError as e3:
+                    logger.error(f"Failed to delete and send new message: {e3}")
+                    # Last resort: edit with error message
+                    await analyzing_msg.edit_text(
+                        localization.get_text('analysis.failed', user.language)
+                    )
+        
     except Exception as e:
-        logger.error(f"Analysis failed: {e}")
-        await analyzing_msg.edit_text(
-            localization.get_text('analysis.failed', user.language)
-        )
+        logger.error(f"Analysis failed: {e}", exc_info=True)
+        try:
+            await analyzing_msg.edit_text(
+                localization.get_text('analysis.failed', user.language)
+            )
+        except TelegramError as edit_error:
+            logger.error(f"Failed to edit error message: {edit_error}")
+            # Try to send a new message if editing fails
+            try:
+                await update.message.reply_text(
+                    localization.get_text('analysis.failed', user.language)
+                )
+            except TelegramError as send_error:
+                logger.error(f"Failed to send error message: {send_error}")
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -213,8 +250,13 @@ async def handle_custom_input(query, context):
     user_repo = get_user_repo()
     user = user_repo.get_or_create(query.from_user.id)
     
+    default_instruction = localization.get_default_custom_instruction(user.language)
+    
     await query.edit_message_text(
-        localization.get_text('onboarding.custom_instruction_input_prompt', user.language)
+        f"{localization.get_text('onboarding.custom_instruction_default_preview', user.language)}\n"
+        f"```\n{default_instruction}```\n\n"
+        f"{localization.get_text('onboarding.custom_instruction_input_prompt', user.language)}",
+        parse_mode='Markdown'
     )
     
     context.user_data['waiting_for_custom_instruction'] = True

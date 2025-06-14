@@ -1,65 +1,66 @@
 # English localization
 welcome:
-  title: "🚨 TRUTH DETECTOR - Don't Get Fooled Again!"
-  description: "In a world full of fake news and propaganda, I'm your personal lie detector. I expose the truth behind every headline using AI-powered fact-checking."
-  ready: "Ready to see what they're hiding from you? 🔍"
+  title: "🔍 FACT CHECKER - Get the Real Story!"
+  description: "In a world full of misinformation and bias, I'm your personal fact-checking assistant. I help you discover the truth behind every headline using AI-powered analysis."
+  ready: "Ready to uncover what's really happening? 🔍"
 
 onboarding:
-  title: "🎯 Choose Your Weapon Against Misinformation"
-  instruction: "Select your language to start exposing the truth:"
-  language_selected: "🔥 Armed with English! Change anytime with /language. Let's hunt some lies!"
-  custom_instruction_title: "⚡ Customize Your Truth Serum"
-  custom_instruction_prompt: "How aggressive should I be in exposing lies? Choose your style:"
-  custom_instruction_default: "🎯 Balanced Truth Hunter"
-  custom_instruction_custom: "🔥 Enter Your Own Instruction"
-  custom_instruction_input_prompt: "Tell me exactly how you want to form the analysis (for example, `expose lies with a focus on economics and politics`).\nJust enter your instruction for our GPT."
-  custom_instruction_set: "💀 Your personal truth weapon is ready!"
-  usage_title: "🔥 How to Become a Truth Warrior"
+  title: "🎯 Choose Your Fact-Checking Approach"
+  instruction: "Select your language to start analyzing information:"
+  language_selected: "✅ Set to English! Change anytime with /language. Let's start fact-checking!"
+  custom_instruction_title: "⚡ Customize Your Analysis Style"
+  custom_instruction_prompt: "How thorough should I be in analyzing information? Choose your approach:"
+  custom_instruction_default: "🎯 Balanced Fact Checker"
+  custom_instruction_custom: "🔧 Enter Your Own Instruction"
+  custom_instruction_default_preview: "**Default Analysis Configuration:**"
+  custom_instruction_input_prompt: "Tell me exactly how you want me to analyze content (for example, `focus on fact-checking with emphasis on economics and politics`).\nJust enter your instruction for our AI."
+  custom_instruction_set: "✅ Your personalized fact-checking approach is ready!"
+  usage_title: "🔍 How to Become an Informed Reader"
   usage_instructions: |
-    **WARNING: This bot will change how you see news forever**
+    **Transform how you consume news and information**
     
-    💣 **Expose Fake News**: Send me ANY news article and watch me:
-    • Tear apart lies and propaganda in seconds
-    • Find the REAL sources they don't want you to see
-    • Give you a brutal honesty score (1-10)
-    • Reveal what mainstream media won't tell you
+    📊 **Analyze Any Content**: Send me ANY news article and I'll:
+    • Check facts and identify potential bias in seconds
+    • Find reliable sources and cross-references
+    • Give you a credibility assessment (1-10)
+    • Highlight what might be missing from the story
     
-    🎯 **Share the Truth**: Every analysis is designed to go viral
-    🌍 **Switch Languages**: Use /language to spread truth globally
-    ⚡ **Upgrade Your Detector**: Use /setting to make me even more savage
+    🎯 **Share Reliable Information**: Every analysis helps you make informed decisions
+    🌍 **Switch Languages**: Use /language to fact-check content globally
+    ⚡ **Adjust Settings**: Use /setting to customize your analysis preferences
     
-    🔄 **Restart Mission**: Use /start anytime
+    🔄 **Restart Anytime**: Use /start to begin fresh
     
-    **Ready to see through the lies? Send me that "news" article! 👀**
+    **Ready to get the full picture? Send me that article! 📰**
 
 language:
-  title: "🌍 Global Truth Network"
+  title: "🌍 Global Fact-Checking Network"
   instruction: "Choose your language to fight misinformation worldwide:"
-  changed: "🔥 Switched to English! Now let's expose some lies!"
+  changed: "✅ Switched to English! Now let's analyze some content!"
   current: "🌍 Current language: English"
 
 settings:
-  title: "⚡ Upgrade Your Lie Detector"
-  current_instruction: "**Current Truth Weapon Configuration:**"
-  change_prompt: "Describe the instruction for the lie detector: (for example, `expose lies with focus on economics and politics`).\nJust enter your instruction for our GPT."
-  keep_current: "✅ Keep Current Power"
-  reset_default: "🔄 Reset to Standard"
-  change_custom: "🔥 Upgrade Weapon"
-  updated: "💀 Truth weapon upgraded! Ready to destroy more lies!"
-  reset: "🎯 Reset to balanced truth hunting mode!"
-  kept: "✅ Keeping current lie-detection settings!"
-  cancelled: "❌ Upgrade cancelled. Current weapon unchanged."
+  title: "⚡ Customize Your Fact Checker"
+  current_instruction: "**Current Analysis Configuration:**"
+  change_prompt: "Describe how you want the fact checker to work: (for example, `focus on fact-checking with emphasis on economics and politics`).\nJust enter your instruction for our AI."
+  keep_current: "✅ Keep Current Settings"
+  reset_default: "🔄 Reset to Default"
+  change_custom: "🔧 Customize Approach"
+  updated: "✅ Analysis approach updated! Ready to provide better insights!"
+  reset: "🎯 Reset to balanced fact-checking mode!"
+  kept: "✅ Keeping current fact-checking settings!"
+  cancelled: "❌ Update cancelled. Current settings unchanged."
 
 analysis:
-  analyzing: "🔍 **SCANNING FOR LIES...**\n💀 Hunting down sources they don't want you to see...\n⚡ Preparing truth bomb..."
-  complete: "💣 **TRUTH BOMB DEPLOYED**"
-  summary: "🎯 **The Real Story:**"
-  credibility_score: "🔥 **LIE DETECTOR SCORE:**"
-  issues_found: "🚨 **EXPOSED {count} LIE(S):**"
-  no_issues: "✅ **SURPRISINGLY HONEST** (Rare find!)"
-  overall_assessment: "💀 **FINAL VERDICT:**"
-  sources: "🔍 **Real Sources They Don't Want You to See:**"
-  failed: "💥 Truth detector temporarily offline. The lies are fighting back! Try again."
+  analyzing: "🔍 **ANALYZING CONTENT...**\n📊 Cross-referencing sources and facts...\n⚡ Preparing comprehensive analysis..."
+  complete: "📊 **ANALYSIS COMPLETE**"
+  summary: "🎯 **Key Findings:**"
+  credibility_score: "📊 **CREDIBILITY ASSESSMENT:**"
+  issues_found: "⚠️ **FOUND {count} CONCERN(S):**"
+  no_issues: "✅ **WELL-SOURCED CONTENT** (Good find!)"
+  overall_assessment: "📋 **OVERALL ASSESSMENT:**"
+  sources: "🔍 **Additional Sources to Consider:**"
+  failed: "⚠️ Analysis temporarily unavailable. Please try again shortly."
 
 languages:
   en: "🇺🇸 English"
@@ -74,11 +75,11 @@ buttons:
 
 custom_instruction:
   default: |
-    Expose lies with surgical precision. Use powerful, engaging language that makes people want to share the truth.
-    Include shocking revelations, use emojis strategically, and create content that goes viral.
-    Make readers feel like they're getting exclusive insider information.
-    End with a call-to-action that makes them want to fact-check more news.
-    Be brutally honest but professional.
-    Write on English.
+    Analyze content with precision and objectivity. Use clear, engaging language that helps people understand complex information.
+    Provide balanced insights, use emojis appropriately, and create content that encourages critical thinking.
+    Help readers feel informed and empowered to make their own judgments.
+    End with suggestions that encourage further research and fact-checking.
+    Be thorough and professional while remaining accessible.
+    Write in English.
 
  

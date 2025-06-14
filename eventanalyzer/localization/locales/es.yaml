@@ -1,65 +1,66 @@
 # Spanish localization
 welcome:
-  title: "🚨 DETECTOR DE VERDAD - ¡No Te Dejes Engañar Más!"
-  description: "En un mundo lleno de noticias falsas y propaganda, soy tu detector personal de mentiras. Expongo la verdad detrás de cada titular usando verificación de hechos con IA."
-  ready: "¿Listo para ver lo que te están ocultando? 🔍"
+  title: "🔍 VERIFICADOR DE HECHOS - ¡Obtén la Historia Real!"
+  description: "En un mundo lleno de desinformación y sesgo, soy tu asistente personal de verificación de hechos. Te ayudo a descubrir la verdad detrás de cada titular usando análisis con IA."
+  ready: "¿Listo para descubrir lo que realmente está pasando? 🔍"
 
 onboarding:
-  title: "🎯 Elige Tu Arma Contra la Desinformación"
-  instruction: "Selecciona tu idioma para comenzar a exponer la verdad:"
-  language_selected: "🔥 ¡Armado con español! Cambia en cualquier momento con /language. ¡Vamos a cazar mentiras!"
-  custom_instruction_title: "⚡ Personaliza Tu Suero de la Verdad"
-  custom_instruction_prompt: "¿Qué tan agresivo debo ser exponiendo mentiras? Elige tu estilo:"
-  custom_instruction_default: "🎯 Cazador de Verdad Equilibrado"
-  custom_instruction_custom: "🔥 Ingresa Tu Propia Instrucción"
-  custom_instruction_input_prompt: "Dime exactamente cómo quieres formar el análisis (por ejemplo, `exponer mentiras con enfoque en economía y política`).\nSimplemente ingresa tu instrucción para nuestro GPT."
-  custom_instruction_set: "💀 ¡Tu arma personal de la verdad está lista!"
-  usage_title: "🔥 Cómo Convertirse en un Guerrero de la Verdad"
+  title: "🎯 Elige Tu Enfoque de Verificación de Hechos"
+  instruction: "Selecciona tu idioma para comenzar a analizar información:"
+  language_selected: "✅ ¡Configurado en español! Cambia en cualquier momento con /language. ¡Comencemos a verificar hechos!"
+  custom_instruction_title: "⚡ Personaliza Tu Estilo de Análisis"
+  custom_instruction_prompt: "¿Qué tan exhaustivo debo ser analizando información? Elige tu enfoque:"
+  custom_instruction_default: "🎯 Verificador de Hechos Equilibrado"
+  custom_instruction_custom: "🔧 Ingresa Tu Propia Instrucción"
+  custom_instruction_default_preview: "**Configuración de Análisis Predeterminada:**"
+  custom_instruction_input_prompt: "Dime exactamente cómo quieres que analice el contenido (por ejemplo, `enfocarse en verificación de hechos con énfasis en economía y política`).\nSimplemente ingresa tu instrucción para nuestra IA."
+  custom_instruction_set: "✅ ¡Tu enfoque personalizado de verificación de hechos está listo!"
+  usage_title: "🔍 Cómo Convertirse en un Lector Informado"
   usage_instructions: |
-    **ADVERTENCIA: Este bot cambiará para siempre cómo consumes noticias**
+    **Transforma cómo consumes noticias e información**
     
-    💣 **Expone Noticias Falsas**: Envíame CUALQUIER artículo de noticias y mira cómo:
-    • Destrozo mentiras y propaganda en segundos
-    • Encuentro las fuentes REALES que no quieren que veas
-    • Te doy una puntuación brutal de honestidad (1-10)
-    • Revelo lo que los medios principales no te dirán
+    📊 **Analiza Cualquier Contenido**: Envíame CUALQUIER artículo de noticias y yo:
+    • Verificaré hechos e identificaré posible sesgo en segundos
+    • Encontraré fuentes confiables y referencias cruzadas
+    • Te daré una evaluación de credibilidad (1-10)
+    • Destacaré lo que podría faltar en la historia
     
-    🎯 **Comparte la Verdad**: Cada análisis está diseñado para volverse viral
-    🌍 **Cambia Idiomas**: Usa /language para difundir la verdad globalmente
-    ⚡ **Mejora Tu Detector**: Usa /setting para hacerme aún más despiadado
+    🎯 **Comparte Información Confiable**: Cada análisis te ayuda a tomar decisiones informadas
+    🌍 **Cambia Idiomas**: Usa /language para verificar contenido globalmente
+    ⚡ **Ajusta Configuraciones**: Usa /setting para personalizar tus preferencias de análisis
     
-    🔄 **Reiniciar Misión**: Usa /start en cualquier momento
+    🔄 **Reinicia Cuando Quieras**: Usa /start para comenzar de nuevo
     
-    **¿Listo para ver a través de las mentiras? ¡Envíame esa "noticia"! 👀**
+    **¿Listo para obtener el panorama completo? ¡Envíame ese artículo! 📰**
 
 language:
-  title: "🌍 Red Global de la Verdad"
+  title: "🌍 Red Global de Verificación de Hechos"
   instruction: "Elige tu idioma para luchar contra la desinformación en todo el mundo:"
-  changed: "🔥 ¡Cambiado al español! ¡Ahora expongamos algunas mentiras!"
+  changed: "✅ ¡Cambiado al español! ¡Ahora analicemos contenido!"
   current: "🌍 Idioma actual: Español"
 
 settings:
-  title: "⚡ Mejora Tu Detector de Mentiras"
-  current_instruction: "**Configuración Actual del Arma de la Verdad:**"
-  change_prompt: "Describe la instrucción para el detector de mentiras: (por ejemplo, `exponer mentiras con enfoque en economía y política`).\nSimplemente ingresa tu instrucción para nuestro GPT."
-  keep_current: "✅ Mantener Poder Actual"
-  reset_default: "🔄 Restablecer a Estándar"
-  change_custom: "🔥 Mejorar Arma"
-  updated: "💀 ¡Arma de la verdad mejorada! ¡Listo para destruir más mentiras!"
-  reset: "🎯 ¡Restablecido al modo equilibrado de caza de la verdad!"
-  kept: "✅ ¡Manteniendo la configuración actual del detector de mentiras!"
-  cancelled: "❌ Mejora cancelada. Arma actual sin cambios."
+  title: "⚡ Personaliza Tu Verificador de Hechos"
+  current_instruction: "**Configuración Actual de Análisis:**"
+  change_prompt: "Describe cómo quieres que funcione el verificador de hechos: (por ejemplo, `enfocarse en verificación de hechos con énfasis en economía y política`).\nSimplemente ingresa tu instrucción para nuestra IA."
+  keep_current: "✅ Mantener Configuración Actual"
+  reset_default: "🔄 Restablecer a Predeterminado"
+  change_custom: "🔧 Personalizar Enfoque"
+  updated: "✅ ¡Enfoque de análisis actualizado! ¡Listo para proporcionar mejores perspectivas!"
+  reset: "🎯 ¡Restablecido al modo equilibrado de verificación de hechos!"
+  kept: "✅ ¡Manteniendo la configuración actual de verificación de hechos!"
+  cancelled: "❌ Actualización cancelada. Configuración actual sin cambios."
 
 analysis:
-  analyzing: "🔍 **ESCANEANDO MENTIRAS...**\n💀 Rastreando fuentes que te ocultan...\n⚡ Preparando bomba de verdad..."
-  complete: "💣 **BOMBA DE VERDAD LANZADA**"
-  summary: "🎯 **La Historia Real:**"
-  credibility_score: "🔥 **PUNTUACIÓN DEL DETECTOR DE MENTIRAS:**"
-  issues_found: "🚨 **EXPUESTAS {count} MENTIRA(S):**"
-  no_issues: "✅ **SORPRENDENTEMENTE HONESTO** (¡Hallazgo raro!)"
-  overall_assessment: "💀 **VEREDICTO FINAL:**"
-  sources: "🔍 **Fuentes Reales Que No Quieren Que Veas:**"
-  failed: "💥 Detector de verdad temporalmente desconectado. ¡Las mentiras se resisten! Inténtalo de nuevo."
+  analyzing: "🔍 **ANALIZANDO CONTENIDO...**\n📊 Cruzando fuentes y hechos...\n⚡ Preparando análisis integral..."
+  complete: "📊 **ANÁLISIS COMPLETO**"
+  summary: "🎯 **Hallazgos Clave:**"
+  credibility_score: "📊 **EVALUACIÓN DE CREDIBILIDAD:**"
+  issues_found: "⚠️ **ENCONTRADAS {count} PREOCUPACIÓN(ES):**"
+  no_issues: "✅ **CONTENIDO BIEN FUNDAMENTADO** (¡Buen hallazgo!)"
+  overall_assessment: "📋 **EVALUACIÓN GENERAL:**"
+  sources: "🔍 **Fuentes Adicionales a Considerar:**"
+  failed: "⚠️ Análisis temporalmente no disponible. Por favor intenta de nuevo en breve."
 
 languages:
   en: "🇺🇸 English"
@@ -74,9 +75,9 @@ buttons:
 
 custom_instruction:
   default: |
-    Expone mentiras con precisión quirúrgica. Usa lenguaje poderoso y atractivo que haga que la gente quiera compartir la verdad.
-    Incluye revelaciones impactantes, usa emojis estratégicamente y crea contenido que se vuelva viral.
-    Haz que los lectores sientan que están obteniendo información exclusiva de adentro.
-    Termina con una llamada a la acción que los haga querer verificar más noticias.
-    Sé brutalmente honesto pero profesional.
+    Analiza contenido con precisión y objetividad. Usa lenguaje claro y atractivo que ayude a las personas a entender información compleja.
+    Proporciona perspectivas equilibradas, usa emojis apropiadamente y crea contenido que fomente el pensamiento crítico.
+    Ayuda a los lectores a sentirse informados y empoderados para hacer sus propios juicios.
+    Termina con sugerencias que fomenten más investigación y verificación de hechos.
+    Sé exhaustivo y profesional mientras permaneces accesible.
     IMPORTANTE: Escribe solo en español. 

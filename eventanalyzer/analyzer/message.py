@@ -4,9 +4,13 @@ from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
 from pydantic import BaseModel, Field
 from datetime import datetime
+import re
+import logging
 
 from ..config import config
 from .schemas import NewsAnalysis, InitialNews
+
+logger = logging.getLogger(__name__)
 
 
 class TelegramMessage(BaseModel):
@@ -26,6 +30,52 @@ class MessageGenerationService:
         template_dir = Path(__file__).parent / "prompts"
         self.jinja_env = Environment(loader=FileSystemLoader(template_dir))
     
+    def _validate_markdown(self, text: str) -> str:
+        """Validate and fix common Markdown formatting issues."""
+        # Fix unmatched asterisks for bold
+        text = re.sub(r'(?<!\*)\*(?!\*)([^*]+?)(?<!\*)\*(?!\*)', r'*\1*', text)
+        
+        # Fix unmatched underscores for italic
+        text = re.sub(r'(?<!_)_(?!_)([^_]+?)(?<!_)_(?!_)', r'_\1_', text)
+        
+        # Fix unmatched backticks for code
+        backtick_count = text.count('`')
+        if backtick_count % 2 != 0:
+            text += '`'
+        
+        # Fix unmatched square brackets for links
+        open_brackets = text.count('[')
+        close_brackets = text.count(']')
+        if open_brackets > close_brackets:
+            text += ']' * (open_brackets - close_brackets)
+        
+        return text
+    
+    def _smart_truncate(self, text: str, max_length: int = 3800) -> str:
+        """Intelligently truncate text while preserving Markdown formatting."""
+        if len(text) <= max_length:
+            return text
+        
+        # Try to truncate at a sentence boundary
+        truncate_at = max_length - 10  # Leave room for "..."
+        
+        # Look for sentence endings near the truncation point
+        sentence_endings = ['. ', '! ', '? ', '\n\n']
+        best_cut = truncate_at
+        
+        for ending in sentence_endings:
+            pos = text.rfind(ending, 0, truncate_at)
+            if pos > truncate_at - 200:  # Don't go too far back
+                best_cut = pos + len(ending)
+                break
+        
+        truncated = text[:best_cut].rstrip()
+        
+        # Ensure Markdown formatting is balanced after truncation
+        truncated = self._validate_markdown(truncated)
+        
+        return truncated + "..."
+    
     async def generate_telegram_message(self, analysis: NewsAnalysis, initial_news: InitialNews, custom_instruction: str = None) -> str:
         """Generate user-friendly Telegram message from analysis results."""
         template = self.jinja_env.get_template("telegram_message.j2")
@@ -35,14 +85,26 @@ class MessageGenerationService:
             custom_instruction=custom_instruction or "Please provide a neutral and objective analysis."
         )
         
+        logger.info(f"Generating message for analysis with score {analysis.credibility_score}/10")
+        
         response = self.client.chat.completions.create(
             model=config.openai_model,
             response_model=TelegramMessage,
             messages=[
-                {"role": "system", "content": f"You are a professional news analyst creating clear, engaging messages for Telegram users. Today is {datetime.now().strftime('%Y-%m-%d')}. Your answer should be not more than 2500 characters."},
+                {"role": "system", "content": f"You are a professional news analyst creating clear, engaging messages for Telegram users. Today is {datetime.now().strftime('%Y-%m-%d')}. Your answer MUST be no more than 3800 characters to ensure it fits within Telegram's limits. Use proper Markdown formatting."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.1,
         )
         
-        return response.text 
+        # Validate and fix Markdown formatting
+        result = self._validate_markdown(response.text)
+        
+        # Final length check and truncation if needed
+        if len(result) > 3800:
+            logger.warning(f"Generated message too long ({len(result)} chars), truncating to 3790")
+            result = self._smart_truncate(result)
+        
+        logger.info(f"Generated message: {len(result)} characters")
+        
+        return result 
