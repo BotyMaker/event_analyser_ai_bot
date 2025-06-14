@@ -31,23 +31,72 @@ class MessageGenerationService:
         self.jinja_env = Environment(loader=FileSystemLoader(template_dir))
     
     def _validate_markdown(self, text: str) -> str:
-        """Validate and fix common Markdown formatting issues."""
-        # Fix unmatched asterisks for bold
-        text = re.sub(r'(?<!\*)\*(?!\*)([^*]+?)(?<!\*)\*(?!\*)', r'*\1*', text)
+        """Validate and fix common Markdown formatting issues for Telegram."""
+        # Process the text character by character to handle nested formatting correctly
+        result = []
+        i = 0
         
-        # Fix unmatched underscores for italic
-        text = re.sub(r'(?<!_)_(?!_)([^_]+?)(?<!_)_(?!_)', r'_\1_', text)
+        # Track open formatting tags
+        asterisk_stack = []  # Track positions of unmatched asterisks
+        underscore_stack = []  # Track positions of unmatched underscores
+        backtick_stack = []  # Track positions of unmatched backticks
+        bracket_stack = []  # Track positions of unmatched brackets
         
-        # Fix unmatched backticks for code
-        backtick_count = text.count('`')
-        if backtick_count % 2 != 0:
-            text += '`'
+        while i < len(text):
+            char = text[i]
+            
+            if char == '*':
+                if asterisk_stack:
+                    asterisk_stack.pop()  # Close the formatting
+                else:
+                    asterisk_stack.append(len(result))  # Open new formatting
+                result.append(char)
+            elif char == '_':
+                if underscore_stack:
+                    underscore_stack.pop()  # Close the formatting
+                else:
+                    underscore_stack.append(len(result))  # Open new formatting
+                result.append(char)
+            elif char == '`':
+                if backtick_stack:
+                    backtick_stack.pop()  # Close the formatting
+                else:
+                    backtick_stack.append(len(result))  # Open new formatting
+                result.append(char)
+            elif char == '[':
+                bracket_stack.append(len(result))
+                result.append(char)
+            elif char == ']':
+                if bracket_stack:
+                    bracket_stack.pop()
+                result.append(char)
+            else:
+                result.append(char)
+            
+            i += 1
         
-        # Fix unmatched square brackets for links
-        open_brackets = text.count('[')
-        close_brackets = text.count(']')
-        if open_brackets > close_brackets:
-            text += ']' * (open_brackets - close_brackets)
+        # Close any remaining open formatting tags
+        text = ''.join(result)
+        
+        # Add closing tags for unmatched formatting
+        if asterisk_stack:
+            text += '*' * len(asterisk_stack)
+        if underscore_stack:
+            text += '_' * len(underscore_stack)
+        if backtick_stack:
+            text += '`' * len(backtick_stack)
+        if bracket_stack:
+            text += ']' * len(bracket_stack)
+        
+        # Fix unmatched parentheses for links
+        open_parens = text.count('](')
+        # Count complete markdown links
+        link_pattern = r'\]\([^)]*\)'
+        actual_links = len(re.findall(link_pattern, text))
+        
+        # If we have ]( but not enough closing ), add them
+        if open_parens > actual_links:
+            text += ')' * (open_parens - actual_links)
         
         return text
     

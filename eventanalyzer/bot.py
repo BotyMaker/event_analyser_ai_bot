@@ -28,6 +28,30 @@ logger = logging.getLogger(__name__)
 analyzer = NewsAnalysisPipeline()
 
 
+def _convert_to_markdownv2(text: str) -> str:
+    """Convert basic Markdown to MarkdownV2 format for Telegram."""
+    # MarkdownV2 requires escaping of special characters
+    # Escape special characters except those used in formatting
+    special_chars = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
+    
+    # First, protect existing markdown formatting
+    text = text.replace('*', '||BOLD||')
+    text = text.replace('_', '||ITALIC||')
+    text = text.replace('`', '||CODE||')
+    
+    # Escape special characters
+    for char in special_chars:
+        if char not in ['*', '_', '`']:  # Don't escape our protected formatting
+            text = text.replace(char, f'\\{char}')
+    
+    # Restore formatting with MarkdownV2 syntax
+    text = text.replace('||BOLD||', '*')
+    text = text.replace('||ITALIC||', '_')
+    text = text.replace('||CODE||', '`')
+    
+    return text
+
+
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     keyboard = create_onboarding_keyboard()
     await update.message.reply_text(
@@ -102,26 +126,48 @@ async def analyze_news(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
             logger.warning(f"Generated message too long ({len(result)} chars), truncating...")
             result = result[:4090] + "..."
         
-        # Try to edit the message
+        # Try to edit the message with multiple fallback strategies
         try:
             await analyzing_msg.edit_text(result, parse_mode='Markdown')
         except BadRequest as e:
-            logger.warning(f"Failed to edit message: {e}")
-            # If editing fails, try without Markdown formatting
+            logger.warning(f"Failed to edit message with Markdown: {e}")
+            
+            # Try to fix common markdown issues and retry
             try:
-                await analyzing_msg.edit_text(result)
+                # Import the validation function from the message service
+                from .analyzer.message import MessageGenerationService
+                msg_service = MessageGenerationService()
+                fixed_result = msg_service._validate_markdown(result)
+                await analyzing_msg.edit_text(fixed_result, parse_mode='Markdown')
+                logger.info("Successfully sent message after markdown validation fix")
             except BadRequest as e2:
-                logger.warning(f"Failed to edit message without Markdown: {e2}")
-                # If still failing, delete the analyzing message and send a new one
+                logger.warning(f"Failed to edit message even after markdown fix: {e2}")
+                
+                # Try with MarkdownV2 as fallback
                 try:
-                    await analyzing_msg.delete()
-                    await update.message.reply_text(result)
-                except TelegramError as e3:
-                    logger.error(f"Failed to delete and send new message: {e3}")
-                    # Last resort: edit with error message
-                    await analyzing_msg.edit_text(
-                        localization.get_text('analysis.failed', user.language)
-                    )
+                    # Convert basic markdown to MarkdownV2 format
+                    markdownv2_result = _convert_to_markdownv2(result)
+                    await analyzing_msg.edit_text(markdownv2_result, parse_mode='MarkdownV2')
+                    logger.info("Successfully sent message with MarkdownV2")
+                except BadRequest as e3:
+                    logger.warning(f"Failed with MarkdownV2: {e3}")
+                    
+                    # Final fallback: send without any markdown
+                    try:
+                        await analyzing_msg.edit_text(result)
+                        logger.info("Sent message without markdown formatting")
+                    except BadRequest as e4:
+                        logger.warning(f"Failed to edit message without Markdown: {e4}")
+                        # If still failing, delete the analyzing message and send a new one
+                        try:
+                            await analyzing_msg.delete()
+                            await update.message.reply_text(result)
+                        except TelegramError as e5:
+                            logger.error(f"Failed to delete and send new message: {e5}")
+                            # Last resort: edit with error message
+                            await analyzing_msg.edit_text(
+                                localization.get_text('analysis.failed', user.language)
+                            )
         
     except Exception as e:
         logger.error(f"Analysis failed: {e}", exc_info=True)

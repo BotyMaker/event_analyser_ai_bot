@@ -5,25 +5,25 @@ from eventanalyzer.localization import localization
 def test_get_text_english():
     """Test getting text in English."""
     title = localization.get_text('welcome.title', 'en')
-    assert 'TRUTH DETECTOR' in title
+    assert 'FACT CHECKER' in title
 
 
 def test_get_text_russian():
     """Test getting text in Russian."""
     title = localization.get_text('welcome.title', 'ru')
-    assert 'ДЕТЕКТОР ПРАВДЫ' in title
+    assert 'ПРОВЕРКА ФАКТОВ' in title
 
 
 def test_get_text_with_formatting():
     """Test text formatting with variables."""
     text = localization.get_text('analysis.issues_found', 'en', count=3)
-    assert 'EXPOSED 3 LIE(S)' in text
+    assert 'FOUND 3 CONCERN(S)' in text
 
 
 def test_get_text_fallback_to_english():
     """Test fallback to English for unsupported language."""
     title = localization.get_text('welcome.title', 'zh')
-    assert 'TRUTH DETECTOR' in title
+    assert 'FACT CHECKER' in title
 
 
 def test_get_text_missing_key():
